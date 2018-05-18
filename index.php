@@ -9,7 +9,7 @@ if(empty($_SESSION['game']))
 {
 	$p1 = new Player("Player/X/", "X");
 	$p2 = new Player("Player/O/", "O");
-	$newBoard = new Board();
+	$newBoard = new Board(4);
 	$newGame = new TicTacToe($newBoard, $p1, $p2);
 }
 else
@@ -27,8 +27,8 @@ $_SESSION['game'] = serialize($newGame);
     <style>
         table.tic td {
             border: 1px solid #333; /* grey cell borders */
-            width: 8rem;
-            height: 8rem;
+            width: 4rem;
+            height: 4rem;
             vertical-align: middle;
             text-align: center;
             font-size: 4rem;
@@ -39,8 +39,8 @@ $_SESSION['game'] = serialize($newGame);
             border: 0;
             background-color: white;
             color: white; /* make the value invisible (white) */
-            height: 8rem;
-            width: 8rem !important;
+            height: 4rem;
+            width: 4rem !important;
             font-family: Arial;
             font-size: 4rem;
             font-weight: normal;

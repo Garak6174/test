@@ -62,8 +62,8 @@ class TicTacToe
 		// Sets the symbol of the current player in an array at the given address
 		// Then switches the next player
 		// Checks if the page has been refreshed, if not -> refresh page
-		for($y = 0; $y < 3; $y++){
-			for($x = 0; $x < 3; $x++){
+		for($y = 0; $y < $this->board->getSize(); $y++){
+			for($x = 0; $x < $this->board->getSize(); $x++){
 				if(isset($_GET["cell-".$y."-".$x])) {
 					if(empty($this->board->boardArray[$y][$x])) {
 						$this->board->boardArray[$y][$x] = $_GET["cell-".$y."-".$x];
@@ -103,7 +103,7 @@ class TicTacToe
 				$win += 1;
 			}
 		}
-		if($win == 3)
+		if($win == $length)
 		{
 			return True;
 		}
@@ -119,7 +119,7 @@ class TicTacToe
 				$win += 1;
 			}
 		}
-		if($win == 3)
+		if($win == $length)
 		{
 			return True;
 		}
@@ -156,7 +156,7 @@ class TicTacToe
 				$win2 += 1;
 			}
 		}
-		if($win1 == 3 or $win2 == 3)
+		if($win1 == $length or $win2 == $length)
 		{
 			return True;
 		}
